@@ -21,7 +21,7 @@ describe 'Census service' do
       data = CensusService.get_data_by_github('kheppenstall')
 
       expect(data[:roles]).to be_an Array
-      expect(data[:roles]).to eq ['active student']
+      expect(data[:roles]).to eq ['graduated']
     end
 
     it 'returns roles for staff', vcr: true do
