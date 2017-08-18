@@ -152,10 +152,10 @@ RSpec.describe Johari, type: :model do
     describe '#format_descriptions' do
       it 'returns hash with keys as four window quadrants' do
         expected = Hash.new(0)
-        expected["arena"]      = johari.arena_window
-        expected["facade"]     = johari.facade_window
-        expected["blind-spot"] = johari.blind_spot_window
-        expected["unknown"]    = johari.unknown_window
+        expected["arena"]     = johari.arena_window
+        expected["facade"]    = johari.facade_window
+        expected["blindSpot"] = johari.blind_spot_window
+        expected["unknown"]   = johari.unknown_window
 
         expect(johari.format_descriptions).to eq expected
       end

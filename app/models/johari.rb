@@ -24,7 +24,7 @@ class Johari
     johari = Hash.new(0)
     johari["arena"] = arena_window
     johari["facade"] = facade_window
-    johari["blind-spot"] = blind_spot_window
+    johari["blindSpot"] = blind_spot_window
     johari["unknown"] = unknown_window
     johari
   end

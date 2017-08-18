@@ -81,8 +81,8 @@ describe 'Users Descriptions Endpoint', :type => :request do
     expect(raw_descriptions['arena'].first['name']).to eq('religious')
     expect(raw_descriptions['facade'].count).to eq(1)
     expect(raw_descriptions['facade'].first['name']).to eq('able')
-    expect(raw_descriptions['blind-spot'].count).to eq(1)
-    expect(raw_descriptions['blind-spot'].first['name']).to eq('shy')
+    expect(raw_descriptions['blindSpot'].count).to eq(1)
+    expect(raw_descriptions['blindSpot'].first['name']).to eq('shy')
     expect(raw_descriptions['unknown'].count).to eq(1)
     expect(raw_descriptions['unknown'].first['name']).to eq('witty')
   end
