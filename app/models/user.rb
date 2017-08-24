@@ -48,7 +48,7 @@ class User < ApplicationRecord
     cohort = data[:cohort]
     staff  = (roles.include?("staff") && "STAFF")
 
-    add_cohort(cohort || staff || nil)
+    add_cohort(cohort || staff)
     add_role(roles)
   end
 
