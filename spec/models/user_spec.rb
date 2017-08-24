@@ -118,7 +118,7 @@ RSpec.describe User, type: :model do
         user.add_cohort_and_role
 
         expect(user.role).to eq 'staff'
-        expect(user.cohort).to be_nil
+        expect(user.cohort.name).to eq 'STAFF'
       end
 
       it 'adds for user without census login based on census data', vcr: true do

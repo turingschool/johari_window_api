@@ -5,7 +5,7 @@ class User < ApplicationRecord
   has_many :adjectives, through: :descriptions
   # users that have described this user
   has_many :described_by, through: :descriptions, source: :describee
-  
+
   # descriptions this user has made
   has_many :described, foreign_key: :describer_id, class_name: "Description"
   # users that this user has described
@@ -43,18 +43,24 @@ class User < ApplicationRecord
   end
 
   def add_cohort_and_role
-    data = CensusService.get_data_by_github(github)
-    add_cohort(data[:cohort]) if data[:cohort]
-    add_role(data[:roles]) if data[:roles]
+    data   = CensusService.get_data_by_github(github)
+    roles  = data[:roles] || []
+    cohort = data[:cohort]
+    staff  = (roles.include?("staff") && "STAFF")
+
+    add_cohort(cohort || staff || nil)
+    add_role(roles)
   end
 
   def add_cohort(cohort_name)
-    self.cohort = Cohort.find_or_create_by(name: cohort_name)
-    self.save
+    if cohort_name
+      self.cohort = Cohort.find_or_create_by(name: cohort_name)
+      self.save
+    end
   end
 
   def add_role(census_roles)
-    if census_roles.include?('staff')
+    if census_roles && census_roles.include?('staff')
       self.role = 1
       self.save
     end
