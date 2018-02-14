@@ -34,7 +34,7 @@ class CensusService
     res = conn.get do |req|
       req.url '/api/v1/users/by_github'
       req.params['q'] = username
-      req.params['access_token'] = ENV['CENSUS_TOKEN']
+      req.params['access_token'] = get_token
     end
     JSON.parse(res.body)
   end
