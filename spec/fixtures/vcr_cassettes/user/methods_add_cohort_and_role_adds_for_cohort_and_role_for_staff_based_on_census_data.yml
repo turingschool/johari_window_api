@@ -1,14 +1,16 @@
 ---
 http_interactions:
 - request:
-    method: get
-    uri: https://turing-census.herokuapp.com/api/v1/users/by_github?access_token=<CENSUS_TOKEN>&q=allisonreusinger
+    method: post
+    uri: https://turing-census.herokuapp.com/oauth/token?client_id=<CENSUS_CLIENT_ID>&client_secret=<CENSUS_SECRET_ID>&grant_type=client_credentials
     body:
-      encoding: US-ASCII
+      encoding: UTF-8
       string: ''
     headers:
       User-Agent:
-      - Faraday v0.11.0
+      - Faraday v0.15.4
+      Content-Length:
+      - '0'
       Accept-Encoding:
       - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
       Accept:
@@ -21,25 +23,23 @@ http_interactions:
       Server:
       - Cowboy
       Date:
-      - Wed, 12 Apr 2017 22:53:18 GMT
+      - Sat, 04 May 2019 21:25:09 GMT
       Connection:
       - keep-alive
-      X-Frame-Options:
-      - SAMEORIGIN
-      X-Xss-Protection:
-      - 1; mode=block
-      X-Content-Type-Options:
-      - nosniff
+      Cache-Control:
+      - private, no-store
+      Pragma:
+      - no-cache
       Content-Type:
       - application/json; charset=utf-8
       Etag:
-      - W/"ef274f6efa635dfccc476d50526e0ea2"
-      Cache-Control:
-      - max-age=0, private, must-revalidate
+      - W/"201125a26b69c779d37a8df52e527800"
       X-Request-Id:
-      - 06ee0b72-6642-4706-a9c5-5fc2bd759025
+      - 996d8dc9-9754-46f3-98f3-2f679cdd5dfe
       X-Runtime:
-      - '0.014924'
+      - '0.020641'
+      Strict-Transport-Security:
+      - max-age=31536000; includeSubDomains
       Vary:
       - Origin
       Transfer-Encoding:
@@ -48,7 +48,54 @@ http_interactions:
       - 1.1 vegur
     body:
       encoding: UTF-8
-      string: '{"id":59,"first_name":"Allison","last_name":"Singer","cohort":null,"image_url":"http://s3.amazonaws.com/turingschool-census/users/images/000/000/059/original/Allison_Reu_Singer.jpeg?1488387100","email":"allison@turing.io","slack":"allison_reu_singer","stackoverflow":"","linked_in":"allisonreu","git_hub":"allisonreusinger","twitter":"a_reuster","roles":[{"id":18,"name":"staff","created_at":"2017-02-14T22:18:26.993Z","updated_at":"2017-02-14T22:18:26.993Z"},{"id":17,"name":"admin","created_at":"2017-02-14T22:18:26.978Z","updated_at":"2017-02-14T22:18:26.978Z"}],"groups":[]}'
+      string: '{"access_token":"9694c43e80a078a3c9b912fb9e9ac2e5b77d45554911aa9be9991d4d9c1278b1","token_type":"Bearer","expires_in":7776000,"created_at":1557005109}'
     http_version: 
-  recorded_at: Wed, 12 Apr 2017 22:53:18 GMT
-recorded_with: VCR 3.0.3
+  recorded_at: Sat, 04 May 2019 21:25:09 GMT
+- request:
+    method: get
+    uri: https://turing-census.herokuapp.com/api/v1/users/by_github?access_token=9694c43e80a078a3c9b912fb9e9ac2e5b77d45554911aa9be9991d4d9c1278b1&q=allisonreusinger
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Faraday v0.15.4
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Server:
+      - Cowboy
+      Date:
+      - Sat, 04 May 2019 21:25:09 GMT
+      Connection:
+      - keep-alive
+      Content-Type:
+      - application/json; charset=utf-8
+      Etag:
+      - W/"96a0d65ebd0f9d6928b8fc22f20df6e4"
+      Cache-Control:
+      - max-age=0, private, must-revalidate
+      X-Request-Id:
+      - aa06fac3-9bf5-4939-90bd-b4f08b254205
+      X-Runtime:
+      - '0.125665'
+      Strict-Transport-Security:
+      - max-age=31536000; includeSubDomains
+      Vary:
+      - Origin
+      Transfer-Encoding:
+      - chunked
+      Via:
+      - 1.1 vegur
+    body:
+      encoding: UTF-8
+      string: '{"id":59,"first_name":"Allison","last_name":"Singer","cohort":{},"cohort_id":null,"image_url":"//s3.amazonaws.com/turingschool-census/users/images/000/000/059/original/Allison_Reu_Singer.jpeg?1488387100","email":"allison@turing.io","slack":"allison_reu_singer","stackoverflow":"","linked_in":"allisonreusinger","git_hub":"allisonreusinger","twitter":"a_reuster","roles":[{"id":18,"name":"staff","created_at":"2017-02-14T22:18:26.993Z","updated_at":"2017-02-14T22:18:26.993Z"},{"id":17,"name":"admin","created_at":"2017-02-14T22:18:26.978Z","updated_at":"2017-02-14T22:18:26.978Z"},{"id":21,"name":"full-circle-reviewer","created_at":"2018-03-17T19:05:53.852Z","updated_at":"2018-03-17T19:05:53.852Z"}],"groups":[]}'
+    http_version: 
+  recorded_at: Sat, 04 May 2019 21:25:10 GMT
+recorded_with: VCR 4.0.0

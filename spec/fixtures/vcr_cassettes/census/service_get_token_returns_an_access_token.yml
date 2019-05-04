@@ -8,7 +8,7 @@ http_interactions:
       string: ''
     headers:
       User-Agent:
-      - Faraday v0.11.0
+      - Faraday v0.15.4
       Content-Length:
       - '0'
       Accept-Encoding:
@@ -23,27 +23,23 @@ http_interactions:
       Server:
       - Cowboy
       Date:
-      - Thu, 20 Jul 2017 03:11:39 GMT
+      - Sat, 04 May 2019 21:27:59 GMT
       Connection:
       - keep-alive
-      X-Frame-Options:
-      - SAMEORIGIN
-      X-Xss-Protection:
-      - 1; mode=block
-      X-Content-Type-Options:
-      - nosniff
       Cache-Control:
-      - no-store
+      - private, no-store
       Pragma:
       - no-cache
       Content-Type:
       - application/json; charset=utf-8
       Etag:
-      - W/"206421c8b092390212b90dd5d68e4c0f"
+      - W/"e174f40821566d5badd203c69b5e6a52"
       X-Request-Id:
-      - a2b20a05-388c-4bf6-bade-2d2ccedbe4af
+      - 6a0241ee-b96f-4b77-86ba-2d8a228fd427
       X-Runtime:
-      - '0.025032'
+      - '0.012044'
+      Strict-Transport-Security:
+      - max-age=31536000; includeSubDomains
       Vary:
       - Origin
       Transfer-Encoding:
@@ -52,7 +48,7 @@ http_interactions:
       - 1.1 vegur
     body:
       encoding: UTF-8
-      string: '{"access_token":"a095bd127b5919d18ddec6a765d3172a26aa6d4a9f55e3684b8becc84a4dba70","token_type":"bearer","expires_in":7776000,"created_at":1500520299}'
+      string: '{"access_token":"fd12cd68e2a94249ae40fefa2849273a797f94bb40ee04a5cf0566d264f0d9f7","token_type":"Bearer","expires_in":7776000,"created_at":1557005279}'
     http_version: 
-  recorded_at: Thu, 20 Jul 2017 03:11:40 GMT
-recorded_with: VCR 3.0.3
+  recorded_at: Sat, 04 May 2019 21:27:59 GMT
+recorded_with: VCR 4.0.0

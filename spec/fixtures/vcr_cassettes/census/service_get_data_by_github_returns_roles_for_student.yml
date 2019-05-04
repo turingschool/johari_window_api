@@ -1,14 +1,16 @@
 ---
 http_interactions:
 - request:
-    method: get
-    uri: https://turing-census.herokuapp.com/api/v1/users/by_github?access_token=<CENSUS_TOKEN>&q=kheppenstall
+    method: post
+    uri: https://turing-census.herokuapp.com/oauth/token?client_id=<CENSUS_CLIENT_ID>&client_secret=<CENSUS_SECRET_ID>&grant_type=client_credentials
     body:
-      encoding: US-ASCII
+      encoding: UTF-8
       string: ''
     headers:
       User-Agent:
-      - Faraday v0.11.0
+      - Faraday v0.15.4
+      Content-Length:
+      - '0'
       Accept-Encoding:
       - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
       Accept:
@@ -21,25 +23,23 @@ http_interactions:
       Server:
       - Cowboy
       Date:
-      - Thu, 20 Jul 2017 03:11:49 GMT
+      - Sat, 04 May 2019 21:27:59 GMT
       Connection:
       - keep-alive
-      X-Frame-Options:
-      - SAMEORIGIN
-      X-Xss-Protection:
-      - 1; mode=block
-      X-Content-Type-Options:
-      - nosniff
+      Cache-Control:
+      - private, no-store
+      Pragma:
+      - no-cache
       Content-Type:
       - application/json; charset=utf-8
       Etag:
-      - W/"93034b2c381d13f2dfdff76f0022f9e4"
-      Cache-Control:
-      - max-age=0, private, must-revalidate
+      - W/"de6b86981edb663cf1a2fe03c4c570c1"
       X-Request-Id:
-      - 1f121921-34e9-4479-a6d2-f0609239755f
+      - 4e7bc943-810c-4a9c-a814-d453e6e5103d
       X-Runtime:
-      - '0.052357'
+      - '0.012001'
+      Strict-Transport-Security:
+      - max-age=31536000; includeSubDomains
       Vary:
       - Origin
       Transfer-Encoding:
@@ -48,7 +48,54 @@ http_interactions:
       - 1.1 vegur
     body:
       encoding: UTF-8
-      string: '{"id":41,"first_name":"Kyle","last_name":"Heppenstall","cohort":{"id":3,"name":"1610-BE","created_at":"2017-02-14T22:18:26.808Z","updated_at":"2017-05-23T15:35:43.955Z","status":"finished"},"image_url":"http://s3.amazonaws.com/turingschool-census/users/images/000/000/041/original/headshot.jpg?1488385631","email":"kyle.heppenstall@gmail.com","slack":"kheppenstall","stackoverflow":"https://stackexchange.com/users/9908873/kyle-heppenstall","linked_in":"kyleheppenstall","git_hub":"kheppenstall","twitter":"","roles":[{"id":13,"name":"graduated","created_at":"2017-02-14T22:18:26.900Z","updated_at":"2017-02-14T22:18:26.900Z"}],"groups":[]}'
+      string: '{"access_token":"5b4f920db721a7cbfdd1f0ad1561a4d83e295e3e302e5f0948dd726578f4ffb9","token_type":"Bearer","expires_in":7776000,"created_at":1557005280}'
     http_version: 
-  recorded_at: Thu, 20 Jul 2017 03:11:51 GMT
-recorded_with: VCR 3.0.3
+  recorded_at: Sat, 04 May 2019 21:28:00 GMT
+- request:
+    method: get
+    uri: https://turing-census.herokuapp.com/api/v1/users/by_github?access_token=5b4f920db721a7cbfdd1f0ad1561a4d83e295e3e302e5f0948dd726578f4ffb9&q=kheppenstall
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Faraday v0.15.4
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Server:
+      - Cowboy
+      Date:
+      - Sat, 04 May 2019 21:28:00 GMT
+      Connection:
+      - keep-alive
+      Content-Type:
+      - application/json; charset=utf-8
+      Etag:
+      - W/"5170e501e3b89f064f26dc3d2b29b07d"
+      Cache-Control:
+      - max-age=0, private, must-revalidate
+      X-Request-Id:
+      - 0d96cda1-4160-46e4-b921-384b394b418e
+      X-Runtime:
+      - '0.080588'
+      Strict-Transport-Security:
+      - max-age=31536000; includeSubDomains
+      Vary:
+      - Origin
+      Transfer-Encoding:
+      - chunked
+      Via:
+      - 1.1 vegur
+    body:
+      encoding: UTF-8
+      string: '{"id":41,"first_name":"Kyle","last_name":"Heppenstall","cohort":{"id":3,"name":"1409-BE"},"cohort_id":3,"image_url":"//s3.amazonaws.com/turingschool-census/users/images/000/000/041/original/headshot.jpg?1488385631","email":"kyle.heppenstall@gmail.com","slack":"kheppenstall","stackoverflow":"https://stackexchange.com/users/9908873/kyle-heppenstall","linked_in":"kyleheppenstall","git_hub":"kheppenstall","twitter":"","roles":[{"id":13,"name":"graduated","created_at":"2017-02-14T22:18:26.900Z","updated_at":"2017-02-14T22:18:26.900Z"}],"groups":[]}'
+    http_version: 
+  recorded_at: Sat, 04 May 2019 21:28:00 GMT
+recorded_with: VCR 4.0.0
