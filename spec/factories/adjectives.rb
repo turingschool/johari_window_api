@@ -1,5 +1,5 @@
-FactoryGirl.define do
+FactoryBot.define do
   factory :adjective do
-    name %w(happy religious witty aggressive).sample
+    name { %w(happy religious witty aggressive).sample }
   end
 end

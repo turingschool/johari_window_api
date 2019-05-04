@@ -1,14 +1,65 @@
 ---
 http_interactions:
 - request:
+    method: post
+    uri: https://turing-census.herokuapp.com/oauth/token?client_id=<CENSUS_CLIENT_ID>&client_secret=<CENSUS_SECRET_ID>&grant_type=client_credentials
+    body:
+      encoding: UTF-8
+      string: ''
+    headers:
+      User-Agent:
+      - Faraday v0.15.4
+      Content-Length:
+      - '0'
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Server:
+      - Cowboy
+      Date:
+      - Sat, 04 May 2019 21:25:09 GMT
+      Connection:
+      - keep-alive
+      Cache-Control:
+      - private, no-store
+      Pragma:
+      - no-cache
+      Content-Type:
+      - application/json; charset=utf-8
+      Etag:
+      - W/"9ea44142a1293bfcd399f75ff48396d8"
+      X-Request-Id:
+      - dac1b107-1538-42ff-9247-75fed2e5d61b
+      X-Runtime:
+      - '0.015581'
+      Strict-Transport-Security:
+      - max-age=31536000; includeSubDomains
+      Vary:
+      - Origin
+      Transfer-Encoding:
+      - chunked
+      Via:
+      - 1.1 vegur
+    body:
+      encoding: UTF-8
+      string: '{"access_token":"9d51d80d20609a76bd7477ba858692d6a73cb436d3d2b6c216c46b3ce094ee4d","token_type":"Bearer","expires_in":7776000,"created_at":1557005110}'
+    http_version: 
+  recorded_at: Sat, 04 May 2019 21:25:10 GMT
+- request:
     method: get
-    uri: https://turing-census.herokuapp.com/api/v1/users/by_github?access_token=<CENSUS_TOKEN>&q=invalid_github_name
+    uri: https://turing-census.herokuapp.com/api/v1/users/by_github?access_token=9d51d80d20609a76bd7477ba858692d6a73cb436d3d2b6c216c46b3ce094ee4d&q=invalid_github_name
     body:
       encoding: US-ASCII
       string: ''
     headers:
       User-Agent:
-      - Faraday v0.11.0
+      - Faraday v0.15.4
       Accept-Encoding:
       - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
       Accept:
@@ -21,23 +72,19 @@ http_interactions:
       Server:
       - Cowboy
       Date:
-      - Wed, 12 Apr 2017 22:53:18 GMT
+      - Sat, 04 May 2019 21:25:10 GMT
       Connection:
       - keep-alive
-      X-Frame-Options:
-      - SAMEORIGIN
-      X-Xss-Protection:
-      - 1; mode=block
-      X-Content-Type-Options:
-      - nosniff
       Content-Type:
       - application/json; charset=utf-8
       Cache-Control:
       - no-cache
       X-Request-Id:
-      - 8bea28fc-602f-4c79-9751-173c75c0b4dd
+      - 56b6819d-768c-442a-84aa-c5f48d09d72d
       X-Runtime:
-      - '0.008867'
+      - '0.063019'
+      Strict-Transport-Security:
+      - max-age=31536000; includeSubDomains
       Vary:
       - Origin
       Transfer-Encoding:
@@ -48,5 +95,5 @@ http_interactions:
       encoding: UTF-8
       string: '{"error":"User not found"}'
     http_version: 
-  recorded_at: Wed, 12 Apr 2017 22:53:18 GMT
-recorded_with: VCR 3.0.3
+  recorded_at: Sat, 04 May 2019 21:25:10 GMT
+recorded_with: VCR 4.0.0

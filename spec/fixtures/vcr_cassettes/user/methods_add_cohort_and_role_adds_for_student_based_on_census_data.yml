@@ -1,14 +1,16 @@
 ---
 http_interactions:
 - request:
-    method: get
-    uri: https://turing-census.herokuapp.com/api/v1/users/by_github?access_token=<CENSUS_TOKEN>&q=Dpalazzari
+    method: post
+    uri: https://turing-census.herokuapp.com/oauth/token?client_id=<CENSUS_CLIENT_ID>&client_secret=<CENSUS_SECRET_ID>&grant_type=client_credentials
     body:
-      encoding: US-ASCII
+      encoding: UTF-8
       string: ''
     headers:
       User-Agent:
-      - Faraday v0.11.0
+      - Faraday v0.15.4
+      Content-Length:
+      - '0'
       Accept-Encoding:
       - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
       Accept:
@@ -21,25 +23,23 @@ http_interactions:
       Server:
       - Cowboy
       Date:
-      - Wed, 12 Apr 2017 22:53:17 GMT
+      - Sat, 04 May 2019 21:20:39 GMT
       Connection:
       - keep-alive
-      X-Frame-Options:
-      - SAMEORIGIN
-      X-Xss-Protection:
-      - 1; mode=block
-      X-Content-Type-Options:
-      - nosniff
+      Cache-Control:
+      - private, no-store
+      Pragma:
+      - no-cache
       Content-Type:
       - application/json; charset=utf-8
       Etag:
-      - W/"f923f6b7fc557c2bda91b7b453222f20"
-      Cache-Control:
-      - max-age=0, private, must-revalidate
+      - W/"2b1e011802ea7d73e05034bfc5fda9ab"
       X-Request-Id:
-      - 15407aa9-9c7f-40d5-a782-b4497cc93685
+      - ff671205-1ef1-4c4a-a1e7-22ac8f24ef9e
       X-Runtime:
-      - '0.017084'
+      - '0.090399'
+      Strict-Transport-Security:
+      - max-age=31536000; includeSubDomains
       Vary:
       - Origin
       Transfer-Encoding:
@@ -48,8 +48,54 @@ http_interactions:
       - 1.1 vegur
     body:
       encoding: UTF-8
-      string: '{"id":54,"first_name":"Drew","last_name":"Palazzari","cohort":{"id":3,"name":"1610-BE","created_at":"2017-02-14T22:18:26.808Z","updated_at":"2017-02-14T22:22:35.658Z","status":"active"},"image_url":"http://s3.amazonaws.com/turingschool-census/users/images/000/000/054/original/drew_turing.jpg?1491509899","email":"drewpalazzari@hotmail.com","slack":"dpalazzari","stackoverflow":"http://stackoverflow.com/users/7497701/dpalazzari","linked_in":"drewpalazzari","git_hub":"Dpalazzari","twitter":"drew_palazzari","roles":[{"id":12,"name":"active
-        student","created_at":"2017-02-14T22:18:26.885Z","updated_at":"2017-02-14T22:18:26.885Z"}],"groups":[]}'
+      string: '{"access_token":"2a53a66ae22ce96b22e84cd3da266b59fa5d677a991ad29edf0b6d36568dce08","token_type":"Bearer","expires_in":7776000,"created_at":1557004840}'
     http_version: 
-  recorded_at: Wed, 12 Apr 2017 22:53:18 GMT
-recorded_with: VCR 3.0.3
+  recorded_at: Sat, 04 May 2019 21:20:40 GMT
+- request:
+    method: get
+    uri: https://turing-census.herokuapp.com/api/v1/users/by_github?access_token=2a53a66ae22ce96b22e84cd3da266b59fa5d677a991ad29edf0b6d36568dce08&q=Dpalazzari
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Faraday v0.15.4
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Server:
+      - Cowboy
+      Date:
+      - Sat, 04 May 2019 21:20:40 GMT
+      Connection:
+      - keep-alive
+      Content-Type:
+      - application/json; charset=utf-8
+      Etag:
+      - W/"f1844a4374f57e0ba67f7ba202cdb6f5"
+      Cache-Control:
+      - max-age=0, private, must-revalidate
+      X-Request-Id:
+      - aa1fa7e0-ddc2-4538-bf0b-1b9b01e67152
+      X-Runtime:
+      - '0.225181'
+      Strict-Transport-Security:
+      - max-age=31536000; includeSubDomains
+      Vary:
+      - Origin
+      Transfer-Encoding:
+      - chunked
+      Via:
+      - 1.1 vegur
+    body:
+      encoding: UTF-8
+      string: '{"id":54,"first_name":"Drew","last_name":"Palazzari","cohort":{"id":3,"name":"1409-BE"},"cohort_id":3,"image_url":"//s3.amazonaws.com/turingschool-census/users/images/000/000/054/original/drew_turing.jpg?1491509899","email":"drewpalazzari@hotmail.com","slack":"dpalazzari","stackoverflow":"http://stackoverflow.com/users/7497701/dpalazzari","linked_in":"drewpalazzari","git_hub":"Dpalazzari","twitter":"drew_palazzari","roles":[{"id":13,"name":"graduated","created_at":"2017-02-14T22:18:26.900Z","updated_at":"2017-02-14T22:18:26.900Z"}],"groups":[]}'
+    http_version: 
+  recorded_at: Sat, 04 May 2019 21:20:40 GMT
+recorded_with: VCR 4.0.0
