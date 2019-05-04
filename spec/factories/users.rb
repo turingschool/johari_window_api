@@ -1,7 +1,7 @@
-FactoryGirl.define do
+FactoryBot.define do
   factory :user do
-    name { Faker::GameOfThrones.character }
+    name { Faker::TvShows::GameOfThrones.character }
     token { SecureRandom.hex }
-    github { 'github' + rand(1000000).to_s }
+    github { "github" + rand(1000000).to_s }
   end
 end

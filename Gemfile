@@ -22,11 +22,11 @@ group :development, :test do
   gem 'pry-state', platform: :mri
   gem 'rspec-rails', '~> 3.5'
   gem 'capybara'
-  gem 'factory_girl_rails'
   gem 'database_cleaner'
   gem 'shoulda-matchers', '~> 3.1'
   gem 'vcr'
   gem 'webmock'
+  gem "factory_bot_rails"
 end
 
 group :development do
